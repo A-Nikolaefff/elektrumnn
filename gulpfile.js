@@ -169,8 +169,6 @@ function fontstyle() {
 	return src(path.src.html).pipe(browsersync.stream());
 }
 
-function cb() { }
-
 function clean() {
 	return del(path.clean);
 }
@@ -193,7 +191,6 @@ function htmlBuild() {
 		.on('error', function (err) {
 			console.error('Error!', err.message);
 		})
-		.pipe(webphtml())
 		.pipe(version({
 			'value': '%DT%',
 			'replaces': [
@@ -238,12 +235,6 @@ function cssBuild() {
 				cascade: true
 			})
 		)
-		.pipe(webpcss(
-			{
-				webpClass: "._webp",
-				noWebpClass: "._no-webp"
-			}
-		))
 		.pipe(dest(path.build.css))
 		.pipe(clean_css())
 		.pipe(
@@ -279,20 +270,6 @@ function jsBuild() {
 function imagesBuild() {
 	return src(path.src.images)
 		.pipe(
-			imagemin([
-				webp({
-					quality: 85
-				})
-			])
-		)
-		.pipe(
-			rename({
-				extname: ".webp"
-			})
-		)
-		.pipe(dest(path.build.images))
-		.pipe(src(path.src.images))
-		.pipe(
 			imagemin({
 				progressive: true,
 				svgoPlugins: [{ removeViewBox: false }],
@@ -308,8 +285,10 @@ let fontsBuild = gulp.series(fonts_otf, fonts, fontstyle);
 let buildDev = gulp.series(clean, gulp.parallel(fontsBuild, json, html, css, js, favicon, images));
 let watch = gulp.series(buildDev, gulp.parallel(watchFiles, browserSync));
 let build = gulp.parallel(htmlBuild, cssBuild, jsBuild, imagesBuild);
+let testBuild = gulp.series(gulp.parallel(htmlBuild, cssBuild, jsBuild, imagesBuild), gulp.parallel(watchFiles, browserSync));
 
 exports.fonts = fontsBuild;
-exports.build = build;
 exports.watch = watch;
 exports.default = watch;
+exports.build = build;
+exports.testbuild = testBuild;
