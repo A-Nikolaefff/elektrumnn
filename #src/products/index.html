@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+	@@include('#src/_head.html',{
+		"title":"Продукция | ЭЛЕКТРУМ НН",
+		"description":"Линейка продукции ЭЛЕКТРУМ: комплектные трансформаторные подстанции, комплектные распределительные устройства, низковольтные комплектные устройства",
+		"keywords":"электрум, электрум нн, ктп, 2ктп, кру, ксо, нку"
+	})
+	<body>
+		<div class="wrapper">
+			@@include('#src/_header.html',{})
+			<main class="page">
+				@@include('#src/_brearcrumbs-2-items.html',{
+					"item1":"Продукция"
+				})
+				@@include('#src/_title.html',{
+					"title":"Продукция"
+				})
+				<div class="page__description description-page ">
+					<div class="description-page__container _container text">
+						Линейка нашей продукции включает в себя различные виды оборудования 0,4-35 кВ. Передовые технологии отрасли мы воплощаем в высокотехнологичных изделиях, созданных с учётом специфики российских условий эксплуатации и отвечающих мировым стандартам качества.
+					</div>
+				</div>
+				<div class="page__products products">
+					<div class="products__container _container">
+						<div class="products__items">
+							<a href="/products/ktp/index.html" class="products__item item-products">
+								<div class="item-products__image">
+									<img src="/img/products/icon-ktp.webp" alt="Комплектные трансформаторные подстанции">
+								</div>
+								<h2 class="item-products__title">Комплектные трансформаторные подстанции</h2>
+								<div class="item-products__description">КТП мощность до 4000кВА с номинальным напряжением до 35кВ</div>
+							</a>
+							<a href="/products/kru/index.html" class="products__item item-products">
+								<div class="item-products__image">
+									<img src="/img/products/icon-kru.webp" alt="Комплектные распределительные устройства">
+								</div>
+								<h2 class="item-products__title">Комплектные распределительные устройства</h2>
+								<div class="item-products__description">Ячейки КРУ 6-35кВ номинальным током до 3150А</div>
+							</a>
+							<a href="/products/nku/index.html" class="products__item item-products">
+								<div class="item-products__image">
+									<img src="/img/products/icon-nku.webp" alt="Низковольтные комплектные устройства">
+								</div>
+								<h2 class="item-products__title">Низковольтные комплектные устройства</h2>
+								<div class="item-products__description">НКУ номинальным током до 6300А</div>
+							</a>
+							<a href="/products/switches/index.html" class="products__item item-products">
+								<div class="item-products__image">
+									<img src="/img/products/icon-switches.webp" alt="Коммутационные аппараты">
+								</div>
+								<h2 class="item-products__title">Коммутационные аппараты</h2>
+								<div class="item-products__description">Вакумные выключатели, выключатели нагрузки, разъединители 10(6) кВ</div>
+							</a>
+							<a href="/products/opu.html" class="products__item item-products">
+								<div class="item-products__image">
+									<img src="/img/products/icon-opu.webp" alt="Блок-модули">
+								</div>
+								<h2 class="item-products__title">Блок-модули</h2>
+								<div class="item-products__description">Общеподстанционные пункты управления</div>
+							</a>
+							<a href="/products/deu.html" class="products__item item-products">
+								<div class="item-products__image">
+									<img src="/img/products/icon-deu.webp" alt="Дизельные электростанции">
+								</div>
+								<h2 class="item-products__title">Дизельные электростанции</h2>
+								<div class="item-products__description">Дизельные электростанции мощностью до 500 кВт на напряжение 400 В</div>
+							</a>
+						</div>
+					</div>
+				</div>
+			</main>
+			@@include('#src/_footer.html',{})
+		</div>
+		@@include('#src/_js.html',{})
+	</body>
+</html>

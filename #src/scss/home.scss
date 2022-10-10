@@ -1,0 +1,210 @@
+// HOME PAGE (index.html)
+
+//<PAGE>===========================================================================================================
+.page {
+    // .page__slider-main-banner
+    &__slider-main-banner {
+        padding: 57px 0 0 0; // 57px высота меню
+    }
+    // .page_counters
+    &_counters {
+    }
+    // .page__main-projects
+    &__main-projects {
+        
+    }
+}
+//</PAGE>===========================================================================================================
+
+//<SLIDER_MAIN_BANNER>===============================================================================================
+.slider-main-banner {
+    position: relative; 
+    // .slider-main-banner__body
+    &__body {
+        height: 400px; // высота баннера
+    }
+    // .slider-main-banner__slide
+    &__slide {
+        height: 100%; 
+        &_one {
+            background: url("../img/main-banner/ktp.jpg") bottom 40% left 50% / cover no-repeat;
+        }
+        &_two {
+            background: url("../img/main-banner/kru.jpg") bottom 70% left 90% / cover no-repeat;
+        }
+        &_three {
+            background: url("../img/main-banner/nku.jpg") bottom 60% left 40% / cover no-repeat;
+        }
+    }
+    // .slider-main-banner__container
+    &__container {
+        height: 100%;
+        display: flex; 
+        justify-content: center;
+    }
+    // .slider-main-banner__content
+    &__content {
+        margin: auto 15% 40px 0;
+        padding: 20px;
+        background-color: rgba(0, 0, 0, 0.75);
+        color: #ffffff;
+        font-family: $fontTitle;
+        @media (max-width:$md2+px){
+            margin: auto 15px 45px 30px;
+        }
+        @media (max-width:$md3+px){
+            background-color: rgba(0, 0, 0, 0.5); 
+        }
+    }
+    // .slider-main-banner__title
+    &__title {
+        display: inline-block;
+        margin: 0 0 5px 0;
+        color: inherit;
+        font-family: $fontTitle;
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 130%;
+        @media (max-width:$md3+px){
+            font-size: 20px;
+        }
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+    // .slider-main-banner__text
+    &__subtitle {
+        font-weight: 500;
+        line-height: 130%;
+        margin: 0 0 10px 0;
+    }
+    // .slider-main-banner__button
+    &__button {
+        display: inline-block;
+        padding: 10px 30px;
+        background-color: rgba(0, 0, 0, 0.01); 
+        color: #ffffff;
+        border: #ffffff 3px solid;
+        border-radius: 0;
+        font-weight: 600;
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        transition: all 0.3s ease 0s;
+        @media (max-width:$md4+px){
+             display: block; 
+        }
+        &:hover {
+            background-color: #ffffff;
+            color: #4A4A4A;
+        }
+    }
+    // .slider-main-banner__pagination
+    &__pagination {
+        position: absolute;
+        left: 50%;
+        bottom: 10px;
+        text-align: center;
+        transform: translateX(-50%);
+        transition: 300ms opacity;
+        z-index: 10;
+        white-space: nowrap;
+        & .swiper-pagination-bullet { 
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            margin: 0 7px 0 0;
+            background: #fff;
+            color: #ffffff;
+            opacity: 0.5;
+            @media (max-width:$md2+px){
+                width: 25px;
+                height: 25px;
+                margin: 0 35px 0 0;
+            }
+        }
+        & .swiper-pagination-bullet-active { 
+            opacity: 1;
+            background: $primaryColor;
+        }
+    }
+}
+//</SLIDER_MAIN_BANNER>===============================================================================================
+
+//<COUNTERS>===============================================================================================
+.counters {
+    padding: 20px 0 0 0;
+    // .counters__container
+    &__container {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        @media (max-width:$md4+px){
+            display: block;
+        }
+    }
+    // .counters__column
+    &__column {
+        flex: 0 0 211px;
+        display: flex;
+        margin: 0 100px 0 0;
+        text-align: center;
+        font-family: $fontTitle;
+        @media (max-width:$md2+px){
+            margin: 0 20px 0 0;
+        }
+        @media (max-width: 713px){
+              margin-bottom: 15px;
+        }
+        @media (max-width:$md4+px){
+            margin: 0 0 5px 0;
+        }
+    }
+    // .counters__content
+    &__content {
+        flex: 0 0 auto;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+    // .counters__counter
+    &__counter {
+        font-weight: 700;
+        font-size: 32px;
+        color: $primaryColor;      
+    }
+    // .counters__underline
+    &__underline {
+        height: 1px;
+        background: $mainColor;
+    }
+    // .counters__label
+    &__label {
+        font-weight: 500;
+    }
+}
+//</COUNTERS>===============================================================================================
+
+//<MAIN_PROJECTS>===============================================================================================
+.main-projects {
+    padding: 5px 0 30px 0;
+    // .main-projects__container
+    &__container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    // .main-projects__title
+    &__title {
+        display: block;
+        font-weight: 500;
+        text-align: center;
+        margin: 0 0 5px 0;
+    }
+    // .main-projects__body
+    &__body {
+    }
+}
+//</MAIN_PROJECTS>===============================================================================================

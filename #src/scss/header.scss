@@ -1,0 +1,257 @@
+@use "sass:math";
+//====================================================================================================
+.header {
+	padding: 12px 0;
+	background-color: $headerBackgroundColor;
+	position: fixed;
+	width: 100%;
+	top: 0;
+	z-index: 50;
+	transition: top 0.8s;
+	&.scroll-down {
+		@media (min-width:$md2+px){
+			top: -57px;
+		}
+	}
+	// .header__container
+	&__container {
+		display: flex;
+		justify-content: space-between;
+	}
+	// .header__logo
+	&__logo {
+		display: block;
+		width: 260px;
+		height: 33px;
+		background-image: url('../img/Logo.png');
+		background-size: 260px 33px;
+		background-repeat: no-repeat;
+		-webkit-tap-highlight-color: transparent;
+	}
+	// .header__menu
+	&__menu {
+	}
+	// .header__contacts
+	&__contacts {
+		display: flex;
+		flex-direction: column;
+			@media (max-width: 1200px){
+			display: none;
+		}
+		&>* {
+			font-family: $fontTitle;
+			color: inherit;
+			font-weight: 500;
+			font-size: 13px;
+			line-height: math.div(13, 13) * 100%;
+			padding-left: 20px;
+			transition: color 0.3s ease 0s;
+			&:hover {
+				color: $primaryColor;
+			}
+		}
+		&>*:not(:last-child) {
+			margin: 0 0 7px 0;
+		}
+	}
+	// .header__phone
+	&__phone {
+		background: url("../img/icons/phone1.svg") 0 50% / 14px no-repeat;
+	}
+	// .header__email
+	&__email {
+		background: url("../img/icons/envelope1.svg") 0 50% / 14px no-repeat;
+	}
+}
+
+.menu {
+	display: flex;
+	align-items: center;
+	// .menu__body
+	&__body { // в классе menu__body описывается меню на мобильных, его параметры
+		@media (max-width: $md2+px) { 
+			transform: translate(0px, -100%); // прячем элемент меню
+			transition: transform 0.5s ease 0s; // параметры анимации при появлении
+			position: fixed; // фиксированная позиция 
+			width: 100%; // во всю ширину экрана
+			height: 100%; // во всю высоту экрана
+			top: 0; // прибиваем к верхнему краю
+			left: 0; // прибиваем к левому краю
+			overflow: auto; // что бы если элементы не помещаются появлялась прокрутка
+			padding: 70px 10px 30px 10px; // отступ сверху 70px что бы меню появлялось ниже крестика, остальные для красоты
+			background-color: rgba(255, 255, 255, 0.95); // полупрозрачный белый фон
+			&._active {
+				transform: translate(0px, 0%); // при добавлении класса (модификатора) active меню появляется
+			}
+		}
+	}	
+	// .menu__icon
+	&__icon {
+	}	
+	// .menu__list
+	&__list {
+		height: 16px;
+		@media (max-width:$md2+px){
+			display: flex;
+			flex-direction: column;
+			.menu__underline {
+				display: none;
+			}
+		}
+		&:hover { 
+			.menu__underline {
+				display: block;
+			}
+		}
+	}
+	// .menu__item
+	&__item {
+		padding: 0 16px;
+		display: inline;
+		text-align: center;
+		position: relative;
+		&:nth-child(1) ~ .menu__underline {
+			transition: all .33s linear;
+			width: 108px;
+			margin-left: 2.4%;
+		}
+		&:nth-child(2):hover ~ .menu__underline {
+			width: 97px;
+			margin-left: 23.8%;
+		}
+		&:nth-child(3):hover ~ .menu__underline {
+			width: 75px;
+			margin-left: 43.6%;
+		}
+		&:nth-child(4):hover ~ .menu__underline {
+			margin-left: 60%;
+			width: 131px;
+		}
+		&:nth-child(5):hover ~ .menu__underline {
+			width: 86px;
+			margin-left: 84.83%;
+		}
+		&:hover .sub-menu {
+			visibility: visible;
+  			opacity: 1;
+		}
+		&:not(:last-child) {
+			margin: 0 0 30px 0;
+		}
+	}
+	// .menu__link
+	&__link {
+		color: inherit;
+		font-family: $fontTitle;
+		font-weight: 700;
+		line-height: 130%;
+		text-transform: uppercase;
+		transition: color 0.3s ease 0s;
+		@media (max-width:$md2+px){
+			font-size: 22px;
+		}
+		@media (min-width: $md2+px) { // при экранах более 912px
+			&:hover {
+				color: $primaryColor;
+			}
+		}
+	}
+	// .menu__underline
+	&__underline {
+		display: none;
+		height: 2px;
+		width: 91px;
+		margin: 0;
+		border: none;
+		background: $primaryColor;
+	}
+	// .menu__sub-menu
+	&__sub-menu {
+	}
+}
+
+//====================================================================================================
+//Burger
+.icon-menu { // в классе icon-menu описывается иконка меню на мобильных
+	display: none; // обычно не видна
+	@media (max-width: $md2+px) {
+		display: block;
+		position: absolute; 
+		top: 18px;
+		right: 10px;
+		width: 30px;
+		height: 18px;
+		cursor: pointer;
+		z-index: 5;
+		-webkit-tap-highlight-color: transparent;
+		span { // рисуем полоски
+			transition: all 0.3s ease 0s;
+			top: calc(50% - 1px);
+			left: 0;
+			position: absolute;
+			width: 100%;
+			height: 2px;
+			background-color: #000;
+			&:first-child {
+				top: 0;
+			}
+			&:last-child {
+				top: auto;
+				bottom: 0;
+			}
+		}
+		&._active { // двигаем полоски
+			span {
+				transform: scale(0);
+				&:first-child {
+					transform: rotate(-45deg);
+					top: calc(50% - 1px);
+				}
+				&:last-child {
+					transform: rotate(45deg);
+					bottom: calc(50% - 1px);
+				}
+			}
+		}
+	}
+}
+.sub-menu {
+	@media (max-width:$md2+px){
+		 display: none; 
+	}
+	visibility: hidden;
+	opacity: 0;
+	position: absolute;
+	left: -8px;
+	top: 15px;
+	padding: 15px 0 0 17px;
+	min-width: 170px;
+	transition: all 0.3s ease 0s;
+	font-size: 13px;
+	font-family: $fontTitle;
+	white-space: nowrap;
+	// .sub-menu__list
+	&__list {
+		background-color:rgba(255, 255, 255, 0.95);
+		box-shadow: 0 0 7px rgb(0 0 0 / 13%);
+		border-radius: 3px;
+		padding: 13px 0;
+	}
+	// .sub-menu__item
+	&__item {
+		height: 28px;
+		&:hover {
+			background-color: $primaryColor;
+			color: #ffffff;
+		}
+	}
+	// .sub-menu__link
+	&__link {
+		display: block;
+		padding: 7.5px 10px 0 10px;
+		width: 100%;
+		height: 100%;
+		color: inherit;
+		text-align: left;
+	}
+}

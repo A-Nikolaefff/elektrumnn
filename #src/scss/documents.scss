@@ -1,0 +1,23 @@
+.page {
+    // .page__equipment-documents
+    &__equipment-documents {
+        padding: 10px 0 30px 0;
+    }
+}
+.equipment-documents {
+    // .equipment-documents__container
+    &__container {
+        display: grid;
+        gap: 20px; 
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+    }
+    // .equipment-documents__documents
+    &__documents {
+        padding: 20px;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: 0 0 0 1px #f2f2f2;
+    }
+}
+

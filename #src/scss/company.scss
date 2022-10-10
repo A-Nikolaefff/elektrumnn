@@ -1,0 +1,117 @@
+.page {
+    // .page__company
+    &__company {
+    }
+}
+.company {
+    padding: 0 0 30px 0;
+    // .company__container
+    &__container {
+    }
+    // .company__section
+    &__section { 
+    }
+    // .company__heading
+    &__heading {
+        border-bottom: 1px #000 solid;
+        margin: 0 0 10px 0;
+    }
+    // .company__sub-heading
+    &__sub-heading {      
+        font-size: 17px; 
+        margin: 0 0 5px 0;
+    }
+    // .company__content
+    &__content {
+        height: 100%;
+        padding: 0 0 10px 0;
+        @media (max-width:$md3+px){
+             display: flex; 
+             flex-wrap: wrap;
+        }
+        // .company__content_partners
+        &_partners {
+            padding: 5px 0 10px 0;
+            display: grid;
+            gap: 20px; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+        }
+    }
+    //   .company__partner 
+    &__partner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: inherit;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 0 0 1px #f2f2f2;
+        transition: box-shadow .3s;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        &>*:not(:last-child) {
+            margin-bottom: 6px;
+        }
+        &:hover {
+        box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+        }
+    }
+    // .company__partner-logo
+    &__partner-logo {
+        height: 70px;
+    }
+    // .company__partner-text
+    &__partner-text {
+        &>span {
+            font-weight: 500;
+        }
+    }
+    // .company__text
+    &__text {       
+        padding: 0 0 0 0;
+        @media (max-width:$md3+px){
+            order: 1;
+            flex: 1 1 100%; 
+        }
+    }
+    // .company__gallery
+    &__gallery {
+        margin: 0 0 0 10px;
+        padding: 12px;
+        width: 410px;
+        float: right; 
+        background-color: #f1f1f1;        
+        border-radius: 10px;
+        @media (max-width:$md3+px){
+            margin: 0 0 0 0;
+            float: none;
+            width: 100%;
+            order: 2;
+            flex: 0 1 100%; 
+            background-color: inherit; 
+        }
+        // .company__gallery__triumph-97
+        &_triumph-97 {
+            margin: 0 0 30px 10px;
+            @media (max-width:$md3+px){
+                margin: 0 0 0 0;
+            }
+        }
+    }
+    // .company__gallery-body
+    &__gallery-body {
+    }
+    // .company__gallery-photo
+    &__gallery-photo {
+    }
+    // .company__gallery-heading
+    &__gallery-heading {
+        margin: 10px 0 0 0;
+        text-align: center;
+        font-family: $fontTitle;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 140%;
+    }
+}
+

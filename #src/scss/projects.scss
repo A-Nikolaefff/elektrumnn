@@ -1,0 +1,253 @@
+//<PROJECTS (страницы списка проектов и карты проектов>=========================================================================================
+.page {
+    // .page__list-projects
+    &__list-projects {
+        padding: 5px 0 30px 0;
+    }
+    // .page__map-projects
+    &__map-projects {
+        padding: 5px 0 30px 0;
+    }
+}
+.list-projects {
+    // .list-projects__container
+    &__container {
+    }
+    // .list-projects__body
+    &__body {      
+    }
+}
+.map-projects {
+    // .map-projects__container
+    &__container {
+    }
+}
+//</PROJECTS (страницы списка проектов и карты проектов>=========================================================================================
+
+//<КАРТОЧКИ ПРОЕКТОВ>==============================================================================================================================
+// Используются на странице "Проекты", на страницах продуктов и на главной
+.projects {
+    display: grid;
+    gap: 25px; 
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+    @media (max-width:$md3+px){
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    }
+    // .projects__project
+    &__project {
+        height: 200px; // 240px
+        position: relative;
+        background-size: 110%;
+        background-position: center;
+        background-repeat: no-repeat;
+        transition: background-size .4s ease-in-out;
+		border-radius: 5px;
+        &:hover {
+            background-size: 120%;
+        }
+        @media (max-width:$md2+px){
+            background-size: cover; // устраняет проблемы с поведением картинки на малых ширинах экрана
+        }
+        @media (max-width:$md3+px){
+            height: 200px;
+        }
+    }
+    // .projects__link
+    &__link {
+        height: 100%;
+        display: block;
+        color: inherit;       
+    }
+    // .projects__heading
+    &__heading {
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        padding: 10px;
+        margin-right: 20px;
+        color: #ffffff;
+        background-color: rgba(0, 0, 0, 0.5);
+        font-family: $fontTitle;
+        font-weight: 500;
+        font-size: 15px;
+        line-height: 125%;       
+    }
+}
+//</КАРТОЧКИ ПРОЕКТОВ>=============================================================================================================================
+
+//<СТРАНИЦЫ ПРОЕКТОВ>==============================================================================================================================
+.project {
+    // .product__container
+    &__container {
+    }
+    // .product__row
+    &__row { 
+        display: flex;
+        justify-content: center; 
+        flex-wrap: wrap;
+        &:last-child {
+            padding: 0 0 20px 0;
+        }
+    }
+    // .project__column
+    &__column {
+        min-width: 0;
+        padding-bottom: 15px; 
+        &:nth-child(1) { // блок info
+            padding-right: 15px;           
+            flex: 1 0 66%;
+            @media (max-width:$md1+px){
+                flex: 1 0 60%;
+            }
+            @media (max-width:$md2+px){
+                flex: 1 0 55%;
+            }
+            @media (max-width:$md3+px){
+                padding-right: 0;
+                flex: 1 0 100%;
+            }
+        }
+        &:nth-child(2) { // блок gallery
+            flex: 1 0 34%;
+            @media (max-width:$md1+px){
+                flex: 1 0 40%;
+            }
+            @media (max-width:$md2+px){
+                flex: 1 0 45%; 
+            }
+            @media (max-width:$md3+px){
+                flex: 0 1 100%;
+            }
+            @media (max-width:$md4+px){
+                flex: 1 0 100%;
+            }
+        }
+        &_info {
+            @media (max-width:$md3+px){
+                order: 2;
+            }
+        }        
+        &_gallery {
+            @media (max-width:$md3+px){
+                order: 1;
+            }            
+        }
+    }
+    // .project__heading
+    &__heading {
+        margin: 0 0 9px 0;
+    }
+    // .project__sub-heading
+    &__sub-heading {
+        margin: 10px 0 9px 0;
+    }
+    // .project__info-list
+    &__info-list {
+    }
+    // .project__slider-photo
+    &__slider-photo {
+    }
+}
+//</СТРАНИЦЫ ПРОЕКТОВ>==============================================================================================================================
+
+//<СТИЛИ ПРОЕКТЕ НА ЯНДЕКС-КАРТЕ>========================================================================================================
+.yandex-map {
+    // yandex-map__row
+	&__row {
+		display: flex;
+		justify-content: flex-start;
+		@media (max-width:$md4+px){
+			 flex-direction: column; 
+			 align-items: center;
+		}
+	}	
+    // yandex-map__column
+	&__column {
+		flex: 1 1 198px;
+		@media (max-width:$md4+px){
+			flex: 1 1 100px; 
+		}
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+    // yandex-map__image
+	&__image {
+		max-width: 180px;
+	}
+    // yandex-map__title
+	&__title {
+		text-transform: uppercase;
+		font-family: $fontTitle;
+		font-weight: 700;
+		text-align: center;
+		margin: 0 0 10px 0;
+		&_no-picture {
+			text-align: left; // когда на карточке только заголовок без картинки
+		}
+	}	
+    // yandex-map__button
+	&__button {
+		width: 140px;
+		display: inline-block;
+		margin: 0 30px;
+		padding: 7px 20px;
+		position: relative;
+		border: 3px solid $primaryColor;
+		transition: all 300ms ease;
+		box-shadow: 0 4px 7px 2px rgba(black, 0.2);
+		text-align: center;
+		text-decoration: none;
+		font-family: $fontTitle;
+		font-weight: 600;
+		letter-spacing: 1px;
+		text-transform: uppercase;
+		color: #4A4A4A;
+		@media (max-width:$md4+px){
+			padding: 7px 2px;
+		}
+		&:before{
+		  position: absolute;
+		  content: '';
+		  width: 0; height: 110%;
+		  background: $primaryColor;
+		  top: -1px;  left: auto; right: 0;
+		  z-index: -1;
+		  transition: all 0.3s ease;
+		}
+		&:hover{
+		  color: white; 
+		  box-shadow:none;
+		  &:before{
+			position: absolute;
+			content: '';
+			width: 101%; height: 110%;
+			background: $primaryColor;
+			top: -1px; left: -1px; right: 0;
+			z-index: -1;
+		  }
+		}
+	}
+    // yandex-map__info
+	&__info {
+	}
+	// .yandex-map__heading
+	&__heading {
+		// text-align: center;
+		font-family: $fontTitle;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.5px;
+		padding: 8px 0 5px 0;
+	}
+	// .yandex-map__list
+	&__list {
+		font-family: $fontFamily;
+		& li {
+			list-style-position: inside;
+            list-style-type: disc;
+		}
+	}
+
+}
+

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ru">
+	@@include('#src/_head.html',{
+		"title":"Лицензии | ЭЛЕКТРУМ НН",
+		"description":"Лицензии ЭЛЕКТРУМ",
+		"keywords":"электрум, электрум нн, лицензии, атомная энергетика, атомная"
+	})
+	<body>
+		<div class="wrapper">
+			@@include('#src/_header.html',{})
+			<main class="page">
+				@@include('#src/_brearcrumbs-2-items.html',{
+					"item1":"Лицензии"
+				})
+			<div class="page__tabs tabs">
+				<div class="tabs__container _container">
+					<div class="tabs__items">
+						<a href="/documents/documents-ktp.html" class="tabs__item">КТП</a>
+						<a href="/documents/documents-kru.html" class="tabs__item">КРУ</a>
+						<a href="/documents/documents-nku.html" class="tabs__item">НКУ</a>
+						<a href="/documents/documents-switches.html" class="tabs__item">Аппараты</a>
+						<a href="/documents/documents-licenses.html" class="tabs__item tabs__item_active">Лицензии</a>
+					</div>
+				</div>
+				
+			</div>
+			@@include('#src/_title.html',{
+				"title":"Лицензии"
+			})
+			<div class="page__equipment-documents equipment-documents">
+				<div class="equipment-documents__container _container">
+					<section class="equipment-documents__documents documents">
+						<h2 class="documents__heading heading">Лицензии в атомной энергетике</h2>
+						<ul class="documents__items">
+							<li class="documents__item">
+								<a href="https://disk.yandex.ru/i/6VfRPdjkaBr8Pw" target="_blank" class="documents__link documents__link_pdf">Лицензия на изготовление оборудования для атомных станций</a>
+							</li>
+							<li class="documents__item">
+								<a href="https://disk.yandex.ru/i/QnaTxowwO_gSYQ" target="_blank" class="documents__link documents__link_pdf">Лицензия на конструирование оборудования для атомных станций</a>
+							</li>					
+						</ul>
+					</section>
+
+				</div>
+			</div>
+			</main>
+			@@include('#src/_footer.html',{})
+		</div>
+		@@include('#src/_js.html',{})
+	</body>
+</html>

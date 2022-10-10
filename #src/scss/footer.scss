@@ -1,0 +1,137 @@
+.footer {  
+    padding: 20px 0;
+    background-color: $footerBackgroundColor;
+    color: #ffffff;
+    // .footer__container
+    &__container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+        @media (max-width: $md3+px) {
+            flex-direction: column;
+        }
+    }
+    // .footer__row
+    &__row {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0px -15px; 
+    }
+    // .footer__column
+    &__column {
+        flex: 0 1 15%;
+        padding: 15px 15px; 
+        min-width: 160px;
+        &:nth-child(2) {
+            flex: 0 1 30%;
+        }
+        &:last-child {
+            flex: 0 1 20%;
+        }
+        @media (max-width: $md2+px) {
+            flex: 0 1 25%;
+            &:last-child {
+                flex: 0 1 25%;
+            }
+        }
+        @media (max-width: 500px) {
+            flex: 0 1 50%;
+            &:last-child {
+                flex: 0 1 100%;
+                }             
+            }
+        }
+    // .footer__label
+    &__label {
+        color: inherit;
+        display: inline-block;
+        font-family: $fontTitle;      
+        font-weight: 700;
+        font-size: 16px;
+        line-height: calc(24 / 16 * 100%);
+        margin: 0 0 20px 0;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+    // .footer__menu
+    &__menu {
+    }
+    // .footer__contacts
+    &__contacts {
+    }
+    // .footer__social
+    &__social {
+    }
+    // .footer__bottom
+    &__bottom {
+        font-family: $fontTitle;
+        font-weight: 500;
+        border-top: 1px #ffffff solid;
+        margin: 0 10px;
+        padding: 10px 10px 0 10px;
+        width: 100%;
+        display: block;
+        align-self: flex-start;
+        @media (max-width:$md3+px){
+             text-align: center; 
+        }
+    }
+
+}
+.menu-footer {
+    // .menu-footer__list
+    &__list {
+    }
+    // .menu-footer__item
+    &__item {
+        &:not(:last-child) {
+            margin: 0 0 10px 0;
+        }
+    }
+    // .menu-footer__link
+    &__link {
+        color: inherit;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: calc(24 / 14 * 100%);
+        display: inline-block; 
+        letter-spacing: 0.2px;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+.contacts-footer {
+    display: flex;
+    flex-direction: column;
+    // .contacts-footer__item
+    &__item {
+        padding: 0 0 0 20px;
+        display: flex;
+        align-items: center;
+        min-height: 30px;
+        color: #fff;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: calc(24 / 14 * 100%);
+        letter-spacing: 0.2px;
+        &:hover {
+            text-decoration: underline;
+        }
+        // .contacts-footer__item_phone
+        &:not(:last-child) {
+            margin: 0 0 12px 0;
+        }
+        // .contacts-footer__item_phone
+        &_phone {
+            background: url("../img/icons/phone2.svg") 0 50% no-repeat;
+        }
+        // .contacts-footer__item_mail
+        &_mail {
+            background: url("../img/icons/envelope2.svg") 0 50% no-repeat;
+        }
+    }
+}
+

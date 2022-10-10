@@ -1,0 +1,223 @@
+//<PRODUCTS (страницы каталогов и иконки продуктов>===================================================
+.page {
+    // .page__products
+    &__products {
+        
+    }
+}
+.products {   
+    // .products__container
+    &__container {
+    }
+    // .products__items
+    &__items {
+        padding: 20px 0 30px 0;
+        display: grid;
+        gap: 30px; 
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
+        @media (max-width:$md3+px){
+            gap: 20px; 
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); 
+        }
+        @media (max-width: 560px){
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); 
+        }
+    }
+    // .products__item
+    &__item {
+    }
+}
+.item-products { 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: inherit;
+    padding: 10px;
+    background-color: #fff;
+    box-shadow: 0 0 0 1px #f2f2f2;
+    transition: box-shadow .3s;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: $fontTitle;
+    &>*:not(:last-child) {
+        margin-bottom: 6px;
+    }
+    &:hover {
+        box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    }
+    // .item-products__image
+    &__image {
+        height: 180px;
+        display: flex;
+        align-items: center;
+        img {
+            max-width: 100%;
+        }       
+    }
+    // .item-products__title
+    &__title {
+        font-weight: 500;
+        font-size: 15px;
+    }
+    // .item-products__description
+    &__description {
+        font-weight: 400;
+        line-height: 120%;
+        letter-spacing: -0.2px;
+    }
+}
+//</PRODUCTS>==========================================================================================
+
+//<PRODUCT (страницы продуктов>======================================================================
+.page {
+    // .page__product
+    &__product {
+    }
+}
+.product {
+    // .product__container
+    &__container {
+    }
+    // .product__row
+    &__row { 
+        display: flex;
+        justify-content: center; 
+        flex-wrap: wrap;
+        &:last-child {
+            padding: 0 0 20px 0;
+        }
+    }
+    // .product__column
+    &__column {
+        min-width: 0;
+        padding-bottom: 15px; 
+        &:nth-child(odd) { // блоки info и tables
+            padding-right: 15px;           
+            flex: 1 0 66%;
+            @media (max-width:$md1+px){
+                flex: 1 0 60%;
+            }
+            @media (max-width:$md2+px){
+                flex: 1 0 55%;
+            }
+            @media (max-width:$md3+px){
+                padding-right: 0;
+                flex: 1 0 100%;
+            }
+        }
+        &:nth-child(even) { // блоки gallery и documents
+            flex: 1 0 34%;
+
+            @media (max-width:$md1+px){
+                flex: 1 0 40%;
+            }
+            @media (max-width:$md2+px){
+                flex: 1 0 45%; 
+            }
+            @media (max-width:$md3+px){
+                flex: 0 1 100%;
+            }
+            @media (max-width:$md4+px){
+                flex: 1 0 100%;
+            }
+        }
+        &_info {
+            @media (max-width:$md3+px){
+                order: 2;
+            }
+        }        
+        &_gallery {
+            @media (max-width:$md3+px){
+                order: 1;
+            }
+            
+        }
+        &_tables {
+            @media (max-width:$md3+px){
+                order: 3;
+            }
+        }
+        &_documents {
+            @media (max-width:$md3+px){
+                order: 4;
+            }
+        }
+    }
+    // .product__heading
+    &__heading {
+        margin: 0 0 9px 0;
+    }
+        // .product__sub-heading
+        &__sub-heading {
+            margin: 10px 0 9px 0;
+        }
+    // .product__info-list
+    &__info-list {
+    }
+    // .product__slider-photo
+    &__slider-photo {
+    }
+    // .product__table
+    &__table {
+        width: 100%;
+        border-collapse: collapse;
+        text-align: left;
+        & td:nth-child(1) {           
+            padding-left: 10px;
+            padding-right: 10px;
+            }
+        & td {
+            padding: 5px 0;
+        }
+        & tr:nth-child(odd) {
+            background-color: #e2e2e2;
+        }
+        &_characteristics {
+            margin: 0 0 10px 0;
+            & td:nth-child(1) {
+                width: 70%;
+                @media (max-width:$md4+px){
+                    width: 80%;
+                }    
+            }
+            & td:nth-child(2) {
+                width: 30%;
+                @media (max-width:$md4+px){
+                    width: 20%;
+                }
+            }
+        }
+        &_equipment {
+            & td:nth-child(1) {
+                width: 35%;
+                @media (max-width:$md4+px){
+                    width: 50%;
+                }    
+            }
+            & td:nth-child(2) {
+                width: 65%;
+                @media (max-width:$md4+px){
+                    width: 50%;
+                }
+            }
+        }
+    }
+    // .product__equipment-link
+    &__equipment-link {
+    }
+    // .product__documents
+    &__documents {
+        }
+    // .product__projects
+    &__projects {
+        padding: 0 0 20px 0;
+    }
+    // .product__projects-items
+    &__projects-items {
+    }
+}
+// .slider-photo описан в ui.scss, так как используется и для проектов и на странице "О компании"
+// .documents описан в ui.scss, так как используется и в разделе "Документация"
+
+
