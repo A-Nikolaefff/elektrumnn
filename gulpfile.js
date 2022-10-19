@@ -14,9 +14,6 @@ let fileinclude = require("gulp-file-include");
 let clean_css = require("gulp-clean-css");
 let newer = require('gulp-newer');
 let version = require('gulp-version-number');
-let webp = require('imagemin-webp');
-let webpcss = require("gulp-webpcss");
-let webphtml = require('gulp-webp-html');
 let fonter = require('gulp-fonter');
 let ttf2woff = require('gulp-ttf2woff');
 let ttf2woff2 = require('gulp-ttf2woff2');
@@ -149,7 +146,7 @@ function fonts() {
 
 function fontstyle() {
 	let file_content = fs.readFileSync(src_folder + '/scss/fonts.scss');
-	if (file_content == '') {
+	if (file_content === '') {
 		fs.writeFile(src_folder + '/scss/fonts.scss', '', cb);
 		fs.readdir(path.build.fonts, function (err, items) {
 			if (items) {
@@ -157,7 +154,7 @@ function fontstyle() {
 				for (var i = 0; i < items.length; i++) {
 					let fontname = items[i].split('.');
 					fontname = fontname[0];
-					if (c_fontname != fontname) {
+					if (c_fontname !== fontname) {
 						fs.appendFile(src_folder + '/scss/fonts.scss', '@include font("' + fontname + '", "'
 							+ fontname + '", "400", "normal");\r\n', cb);
 					}
